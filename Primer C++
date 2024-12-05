@@ -1,0 +1,45 @@
+#include <iostream>
+#include<cstdlib>
+using namespace std;
+
+class {
+  public:
+    int yo;
+    int el;
+  void mover (int desp_yo, int desp_el){
+    yo=yo+desp_yo;
+    el=el+desp_el;
+  }
+}caminata;
+
+int main() {
+  int desplazo_yo;
+  int desplazo_el;
+  int inicio_yo;
+  int inicio_el;
+  
+  cout<<"Hola"<<endl;
+  cout << "¿En que mts empiezas a caminar?" << endl;
+  cin >> inicio_yo;
+  cout << "¿En que mts empieza EL a caminar?" << endl;
+  cin >> inicio_el;
+  caminata.yo=inicio_yo;
+  caminata.el=inicio_el;
+
+  cout << "¿Cuantos mts te desplazas? " << endl;
+  cin >> desplazo_yo;
+  cout << "¿Cuantos mts se desplaza EL? " << endl;
+  cin >> desplazo_el;
+
+  //cout<<"\033[2J\033[1;1H"; //borra la pantalla y lo manda arriba
+  //cout<<"\033[2J"; //borra la pantalla
+  //cout<<"\033[1;1H"; //manda el texto arriba
+  cout << "\033c"; //esto es un escape code, la c significa escape, osea, resetea la pantalla
+  
+  caminata.mover(desplazo_yo,desplazo_el);
+  cout << "Tus metros recorridos fueron " << desplazo_yo << endl;
+  cout << "Tus metros alcanzados en total fueron " << caminata.yo << endl;
+  cout << "----------------------------------------" << endl;
+  cout << "Los metros recorridos de EL fueron " << desplazo_el << endl;
+  cout << "Los metros alcanzados de EL en total fueron " << caminata.el << endl;
+}
